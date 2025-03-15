@@ -34,14 +34,14 @@ https://jpnculture.net/jushinichi-juushinichi/
 
 
 
-import SolarTerms24
+import naokitakisawa.solarTerm24 as solarTerm24
 import Jyuunishi
 
 
 
 
 def is_jyuushinichi(date):
-    term_name = SolarTerms24.term_of_date(date)
+    term_name = solarTerm24.term_of_date(date)
     jyuunishi = Jyuunishi.jyuunishi_of_date(date)
     
     

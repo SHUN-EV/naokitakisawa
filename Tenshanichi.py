@@ -26,7 +26,7 @@ import datetime
 
 import Jyuunishi
 import Jikkan
-import SolarTerms24
+import naokitakisawa.solarTerm24 as solarTerm24
 
 
 
@@ -56,12 +56,12 @@ def tensyanichi(year):
     dates = []
     
     _dates = []
-    _dates += SolarTerms24.dates_of('立春', year)
-    _dates += SolarTerms24.dates_of('雨水', year)
-    _dates += SolarTerms24.dates_of('啓蟄', year)
-    _dates += SolarTerms24.dates_of('春分', year)
-    _dates += SolarTerms24.dates_of('清明', year)
-    _dates += SolarTerms24.dates_of('穀雨', year)
+    _dates += solarTerm24.dates_of('立春', year)
+    _dates += solarTerm24.dates_of('雨水', year)
+    _dates += solarTerm24.dates_of('啓蟄', year)
+    _dates += solarTerm24.dates_of('春分', year)
+    _dates += solarTerm24.dates_of('清明', year)
+    _dates += solarTerm24.dates_of('穀雨', year)
     
     dates += _dates_of_dates_jikkan_jyuunichi(_dates, '戊', '寅')
     
@@ -69,12 +69,12 @@ def tensyanichi(year):
     
     _dates = []
     
-    _dates += SolarTerms24.dates_of('立夏', year)
-    _dates += SolarTerms24.dates_of('小満', year)
-    _dates += SolarTerms24.dates_of('芒種', year)
-    _dates += SolarTerms24.dates_of('夏至', year)
-    _dates += SolarTerms24.dates_of('小暑', year)
-    _dates += SolarTerms24.dates_of('大暑', year)
+    _dates += solarTerm24.dates_of('立夏', year)
+    _dates += solarTerm24.dates_of('小満', year)
+    _dates += solarTerm24.dates_of('芒種', year)
+    _dates += solarTerm24.dates_of('夏至', year)
+    _dates += solarTerm24.dates_of('小暑', year)
+    _dates += solarTerm24.dates_of('大暑', year)
     
     dates += _dates_of_dates_jikkan_jyuunichi(_dates, '甲', '午')
     
@@ -82,12 +82,12 @@ def tensyanichi(year):
     
     _dates = []
     
-    _dates += SolarTerms24.dates_of('立秋', year)
-    _dates += SolarTerms24.dates_of('処暑', year)
-    _dates += SolarTerms24.dates_of('白露', year)
-    _dates += SolarTerms24.dates_of('秋分', year)
-    _dates += SolarTerms24.dates_of('寒露', year)
-    _dates += SolarTerms24.dates_of('霜降', year)
+    _dates += solarTerm24.dates_of('立秋', year)
+    _dates += solarTerm24.dates_of('処暑', year)
+    _dates += solarTerm24.dates_of('白露', year)
+    _dates += solarTerm24.dates_of('秋分', year)
+    _dates += solarTerm24.dates_of('寒露', year)
+    _dates += solarTerm24.dates_of('霜降', year)
     
     dates += _dates_of_dates_jikkan_jyuunichi(_dates, '戊', '申')
     
@@ -95,12 +95,12 @@ def tensyanichi(year):
     
     _dates = []
     
-    _dates += SolarTerms24.dates_of('立冬', year)
-    _dates += SolarTerms24.dates_of('小雪', year)
-    _dates += SolarTerms24.dates_of('大雪', year)
-    _dates += SolarTerms24.dates_of('冬至', year)
-    _dates += SolarTerms24.dates_of('小寒', year)
-    _dates += SolarTerms24.dates_of('大寒', year)
+    _dates += solarTerm24.dates_of('立冬', year)
+    _dates += solarTerm24.dates_of('小雪', year)
+    _dates += solarTerm24.dates_of('大雪', year)
+    _dates += solarTerm24.dates_of('冬至', year)
+    _dates += solarTerm24.dates_of('小寒', year)
+    _dates += solarTerm24.dates_of('大寒', year)
     
     dates += _dates_of_dates_jikkan_jyuunichi(_dates, '甲', '子')
     

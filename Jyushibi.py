@@ -26,7 +26,7 @@ https://sk-imedia.com/27430
 
 
 import Jyuunishi
-import SolarTerms24
+import naokitakisawa.solarTerm24 as solarTerm24
 
 class Jyushibi:
     def __init__(self, year):
@@ -37,7 +37,7 @@ class Jyushibi:
         #十二支と二十四節気を受け取り、該当する日を self._dates配列に格納する。
         def set_dates(eto_number, term_name):
             eto = _eto[eto_number]
-            dates = SolarTerms24.dates_of(term_name, year)
+            dates = solarTerm24.dates_of(term_name, year)
             for date in dates:
                 myEto = Jyuunishi.jyuunishi_of_date(date)
                 if eto == myEto:

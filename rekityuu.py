@@ -69,8 +69,7 @@ shinreki_string = obj.convert_kyuureki_to_shinreki(kyuureki_string) #旧暦か�
 import datetime
 import re
 from qreki import Kyureki # https://github.com/fgshun/qreki_py
-import SolarTerms24   # このコードと同じとこに置いてあると思います。
-
+import naokitakisawa.solarTerm24 as solarTerm24   # このコードと同じとこに置いてあると思います。
 
 
 class rekityuu(datetime.date):
@@ -333,7 +332,7 @@ class rekityuu(datetime.date):
         current_jyuunityoku_number = 99
         
 
-        dates = SolarTerms24.dates_of('大雪', self.year - 1)
+        dates = solarTerm24.dates_of('大雪', self.year - 1)
         for date in dates:
             eto = rekityuu.fromisoformat(date).jyuunishi
             if eto == '子':
@@ -348,7 +347,7 @@ class rekityuu(datetime.date):
             current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12
 
 
-        dates = SolarTerms24.dates_of('冬至', self.year - 1)
+        dates = solarTerm24.dates_of('冬至', self.year - 1)
         for date in dates:
                 
             #1月分はスキップ
@@ -361,7 +360,7 @@ class rekityuu(datetime.date):
             current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12
 
 
-        dates = SolarTerms24.dates_of('冬至', self.year)
+        dates = solarTerm24.dates_of('冬至', self.year)
         for date in dates:
                 
             #12月分はスキップ
@@ -376,7 +375,7 @@ class rekityuu(datetime.date):
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('小寒', self.year)
+        dates = solarTerm24.dates_of('小寒', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -384,7 +383,7 @@ class rekityuu(datetime.date):
  
 
 
-        dates = SolarTerms24.dates_of('大寒', self.year)
+        dates = solarTerm24.dates_of('大寒', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -393,14 +392,14 @@ class rekityuu(datetime.date):
     
  
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('立春', self.year)
+        dates = solarTerm24.dates_of('立春', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
             current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12
  
             
-        dates = SolarTerms24.dates_of('雨水', self.year)
+        dates = solarTerm24.dates_of('雨水', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -410,7 +409,7 @@ class rekityuu(datetime.date):
     
  
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('啓蟄', self.year)
+        dates = solarTerm24.dates_of('啓蟄', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -419,7 +418,7 @@ class rekityuu(datetime.date):
  
             
 
-        dates = SolarTerms24.dates_of('春分', self.year)
+        dates = solarTerm24.dates_of('春分', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -429,7 +428,7 @@ class rekityuu(datetime.date):
  
     
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('清明', self.year)
+        dates = solarTerm24.dates_of('清明', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -437,7 +436,7 @@ class rekityuu(datetime.date):
             current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12
  
             
-        dates = SolarTerms24.dates_of('穀雨', self.year)
+        dates = solarTerm24.dates_of('穀雨', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -447,7 +446,7 @@ class rekityuu(datetime.date):
 
     
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('立夏', self.year)
+        dates = solarTerm24.dates_of('立夏', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -455,7 +454,7 @@ class rekityuu(datetime.date):
  
             
  
-        dates = SolarTerms24.dates_of('小満', self.year)
+        dates = solarTerm24.dates_of('小満', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -464,7 +463,7 @@ class rekityuu(datetime.date):
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('芒種', self.year)
+        dates = solarTerm24.dates_of('芒種', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -472,7 +471,7 @@ class rekityuu(datetime.date):
  
             
  
-        dates = SolarTerms24.dates_of('夏至', self.year)
+        dates = solarTerm24.dates_of('夏至', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -481,7 +480,7 @@ class rekityuu(datetime.date):
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('小暑', self.year)
+        dates = solarTerm24.dates_of('小暑', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -489,25 +488,7 @@ class rekityuu(datetime.date):
  
             
  
-        dates = SolarTerms24.dates_of('大暑', self.year)
-        for date in dates:
-            self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
-            if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
-            current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12    
-
-
-
-
-        current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('立秋', self.year)
-        for date in dates:
-            self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
-            if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
-            current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12
- 
-            
- 
-        dates = SolarTerms24.dates_of('処暑', self.year)
+        dates = solarTerm24.dates_of('大暑', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -517,7 +498,7 @@ class rekityuu(datetime.date):
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('白露', self.year)
+        dates = solarTerm24.dates_of('立秋', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -525,7 +506,7 @@ class rekityuu(datetime.date):
  
             
  
-        dates = SolarTerms24.dates_of('秋分', self.year)
+        dates = solarTerm24.dates_of('処暑', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -535,7 +516,25 @@ class rekityuu(datetime.date):
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('寒露', self.year)
+        dates = solarTerm24.dates_of('白露', self.year)
+        for date in dates:
+            self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
+            if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
+            current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12
+ 
+            
+ 
+        dates = solarTerm24.dates_of('秋分', self.year)
+        for date in dates:
+            self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
+            if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
+            current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12    
+
+
+
+
+        current_jyuunityoku_number -= 1
+        dates = solarTerm24.dates_of('寒露', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -543,7 +542,7 @@ class rekityuu(datetime.date):
  
         
  
-        dates = SolarTerms24.dates_of('霜降', self.year)
+        dates = solarTerm24.dates_of('霜降', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -552,7 +551,7 @@ class rekityuu(datetime.date):
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('立冬', self.year)
+        dates = solarTerm24.dates_of('立冬', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -560,7 +559,7 @@ class rekityuu(datetime.date):
  
             
  
-        dates = SolarTerms24.dates_of('小雪', self.year)
+        dates = solarTerm24.dates_of('小雪', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -569,7 +568,7 @@ class rekityuu(datetime.date):
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('大雪', self.year)
+        dates = solarTerm24.dates_of('大雪', self.year)
         for date in dates:
             self.__jyuunichoku_from_date[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if IS_DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -577,7 +576,7 @@ class rekityuu(datetime.date):
  
             
  
-        dates = SolarTerms24.dates_of('冬至', self.year)
+        dates = solarTerm24.dates_of('冬至', self.year)
         for date in dates:
             #1月分はスキップ
             month = date.split('-')[1]
@@ -693,7 +692,7 @@ class rekityuu(datetime.date):
         #十二支と二十四節気を受け取り、該当する日を self._dates配列に格納する。
         def set_dates(eto_number, term_name):
             eto = _eto[eto_number]
-            dates = SolarTerms24.dates_of(term_name, self.year)
+            dates = solarTerm24.dates_of(term_name, self.year)
             
             for date in dates:
                 k = rekityuu.fromisoformat(date)
@@ -735,7 +734,7 @@ class rekityuu(datetime.date):
         return self.is_jyuushinichi()
     
     def is_jyuushinichi(self):
-        term_name = SolarTerms24.term_of_date( str(self) )
+        term_name = solarTerm24.term_of_date( str(self) )
         jyuunishi = self.jyuunishi
     
 
@@ -810,7 +809,7 @@ class rekityuu(datetime.date):
     
     @property
     def sekki(self):
-        return SolarTerms24.term_of_date(date)
+        return solarTerm24.term_of_date(date)
 
 
 
@@ -902,7 +901,7 @@ class rekityuu(datetime.date):
         return self.is_tenshanichi()
     
     def is_tenshanichi(self):
-        term = SolarTerms24.term_of_date( str(self) )
+        term = solarTerm24.term_of_date( str(self) )
 
         if term in ['立春', '雨水', '啓蟄', '春分', '清明', '穀雨']:
             jikkan = self.jikkan
@@ -951,7 +950,7 @@ class rekityuu(datetime.date):
         return self.is_ichiryuumandainichi()
     
     def is_ichiryuumandainichi(self):
-        term = SolarTerms24.term_of_date( str(self) )
+        term = solarTerm24.term_of_date( str(self) )
         
         if term == '小寒' or term == '大寒':
             if self.jyuunishi == '卯' or self.jyuunishi == '子':
@@ -1115,7 +1114,7 @@ class rekityuu(datetime.date):
         return self.is_setsubun()
     
     def is_setsubun(self):
-        setsubun_data = SolarTerms24.節分(self.year)
+        setsubun_data = solarTerm24.節分(self.year)
         # print(setsubun_data)
         
         for a_setsubun in setsubun_data:
@@ -1133,13 +1132,13 @@ class rekityuu(datetime.date):
         return self.is_higan()
 
     def is_higan(self):
-        term = SolarTerms24.term_of_date( str(self) )
+        term = solarTerm24.term_of_date( str(self) )
         if term != '春分' or term != '秋分':
             return False
         
         dates = []
                 
-        date_string = SolarTerms24.date_of('春分', self.year)
+        date_string = solarTerm24.date_of('春分', self.year)
         r = rekityuu.fromisoformat(date_string)
         one_day_ago = r.back()
         two_days_ago = r.back().back()
@@ -1151,7 +1150,7 @@ class rekityuu(datetime.date):
         dates += [str(a) for a in [three_days_ago, two_days_ago, one_day_ago, r, one_day_after, two_days_after, three_days_after] ]
 
 
-        date_string = SolarTerms24.date_of('秋分', self.year)
+        date_string = solarTerm24.date_of('秋分', self.year)
         r = rekityuu.fromisoformat(date_string)
         one_day_ago = r.back()
         two_days_ago = r.back().back()
@@ -1177,7 +1176,7 @@ class rekityuu(datetime.date):
         
         
         
-        d = rekityuu.fromisoformat( SolarTerms24.date_of('立春', self.year))
+        d = rekityuu.fromisoformat( solarTerm24.date_of('立春', self.year))
         dates = []
         for _ in range(18):
             d = d.back()
@@ -1194,7 +1193,7 @@ class rekityuu(datetime.date):
                 
                 
                 
-        d = rekityuu.fromisoformat( SolarTerms24.date_of('立夏', self.year))
+        d = rekityuu.fromisoformat( solarTerm24.date_of('立夏', self.year))
         dates = []
         for _ in range(18):
             d = d.back()
@@ -1211,7 +1210,7 @@ class rekityuu(datetime.date):
 
 
 
-        d = rekityuu.fromisoformat( SolarTerms24.date_of('立秋', self.year))
+        d = rekityuu.fromisoformat( solarTerm24.date_of('立秋', self.year))
         dates = []
         for _ in range(18):
             d = d.back()
@@ -1228,7 +1227,7 @@ class rekityuu(datetime.date):
 
 
 
-        d = rekityuu.fromisoformat( SolarTerms24.date_of('立冬', self.year))
+        d = rekityuu.fromisoformat( solarTerm24.date_of('立冬', self.year))
         dates = []
         for _ in range(18):
             d = d.back()
@@ -1272,7 +1271,7 @@ class rekityuu(datetime.date):
     def is_syanichi(self):
 
 
-        syunbun = rekityuu.fromisoformat( SolarTerms24.date_of('春分', ｓelf.year) )
+        syunbun = rekityuu.fromisoformat( solarTerm24.date_of('春分', ｓelf.year) )
         backward = syunbun.back()
         forward = syunbun.advance()
         
@@ -1290,7 +1289,7 @@ class rekityuu(datetime.date):
         
 
         
-        syuubun = rekityuu.fromisoformat( SolarTerms24.date_of('秋分', ｓelf.year) )
+        syuubun = rekityuu.fromisoformat( solarTerm24.date_of('秋分', ｓelf.year) )
         backward = syuubun.back()
         forward = syuubun.advance()
 
@@ -1319,7 +1318,7 @@ class rekityuu(datetime.date):
 
 
     def _hachijyuuhachiya(self):
-        rissyun = self.fromisoformat( SolarTerms24.date_of('立春', self.year) )
+        rissyun = self.fromisoformat( solarTerm24.date_of('立春', self.year) )
         delta = datetime.timedelta(days=87)
         hachijyuuhachiya = rissyun + delta
         return str(hachijyuuhachiya)
@@ -1341,7 +1340,7 @@ class rekityuu(datetime.date):
 
             
     def nihyakutouka(self):
-        rissyun = self.fromisoformat( SolarTerms24.date_of('立春', self.year) )
+        rissyun = self.fromisoformat( solarTerm24.date_of('立春', self.year) )
         delta = datetime.timedelta(days=209)
         date_nihyakutouka = rissyun + delta
         return str(date_nihyakutouka)      
@@ -1358,7 +1357,7 @@ class rekityuu(datetime.date):
 
             
     def nihyakuhatsuka(self):
-        rissyun = self.fromisoformat( SolarTerms24.date_of('立春', self.year) )
+        rissyun = self.fromisoformat( solarTerm24.date_of('立春', self.year) )
         delta = datetime.timedelta(days=219)
         date_nihyakutouka = rissyun + delta
         return str(date_nihyakutouka)      
@@ -1400,7 +1399,7 @@ class rekityuu(datetime.date):
         dates = []
         seen_counter = 0
         
-        date = rekityuu.fromisoformat( SolarTerms24.date_of('夏至', self.year) )
+        date = rekityuu.fromisoformat( solarTerm24.date_of('夏至', self.year) )
         while True:
             if date.jikkan == '庚':
                 seen_counter += 1
@@ -1414,7 +1413,7 @@ class rekityuu(datetime.date):
 
             
             
-        date = rekityuu.fromisoformat( SolarTerms24.date_of('立秋', self.year) )
+        date = rekityuu.fromisoformat( solarTerm24.date_of('立秋', self.year) )
         while True:      
             if date.jikkan == '庚':
                 dates.append( str(date) )
@@ -1457,7 +1456,7 @@ class rekityuu(datetime.date):
     def roujitsu(self):
         dates = []
         
-        d = rekityuu.fromisoformat( SolarTerms24.date_of('小寒', self.year) )
+        d = rekityuu.fromisoformat( solarTerm24.date_of('小寒', self.year) )
         seen_couner = 0
         while True:
             # print('While1')
@@ -1469,7 +1468,7 @@ class rekityuu(datetime.date):
             d = d.advance()
 
 
-        d = rekityuu.fromisoformat( SolarTerms24.date_of('大寒', self.year) )
+        d = rekityuu.fromisoformat( solarTerm24.date_of('大寒', self.year) )
         if d.jyuunishi == '辰':
             date.append( str(d) )
         else:
@@ -1491,7 +1490,7 @@ class rekityuu(datetime.date):
                 forward_d = forward_d.advance()
 
 
-        d = rekityuu.fromisoformat( SolarTerms24.date_of('大寒', self.year) )
+        d = rekityuu.fromisoformat( solarTerm24.date_of('大寒', self.year) )
         while True:
             if d.jyuunishi == '戌':
                 dates.append( str(d) )

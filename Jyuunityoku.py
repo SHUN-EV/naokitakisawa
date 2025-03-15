@@ -48,7 +48,7 @@ https://shinto-bukkyo.net/koyomi/十二直/
 @author: naokitakisawa
 """
 
-import SolarTerms24
+import naokitakisawa.solarTerm24 as solarTerm24
 import Jyuunishi
 
 DEBUG_MODE = False
@@ -78,7 +78,7 @@ class Jyuunityoku:
         
         
         
-        dates = SolarTerms24.dates_of('大雪', year - 1)
+        dates = solarTerm24.dates_of('大雪', year - 1)
         for date in dates:
             
             eto = Jyuunishi.jyuunishi_of_date(date)
@@ -95,7 +95,7 @@ class Jyuunityoku:
 
 
         
-        dates = SolarTerms24.dates_of('冬至', year - 1)
+        dates = solarTerm24.dates_of('冬至', year - 1)
         for date in dates:
                 
             #1月分はスキップ
@@ -109,7 +109,7 @@ class Jyuunityoku:
 
 
         
-        dates = SolarTerms24.dates_of('冬至', year)
+        dates = solarTerm24.dates_of('冬至', year)
         for date in dates:
                 
             #12月分はスキップ
@@ -129,7 +129,7 @@ class Jyuunityoku:
   
     
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('小寒', year)
+        dates = solarTerm24.dates_of('小寒', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -137,7 +137,7 @@ class Jyuunityoku:
  
 
 
-        dates = SolarTerms24.dates_of('大寒', year)
+        dates = solarTerm24.dates_of('大寒', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -149,14 +149,14 @@ class Jyuunityoku:
     
  
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('立春', year)
+        dates = solarTerm24.dates_of('立春', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
             current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12
  
             
-        dates = SolarTerms24.dates_of('雨水', year)
+        dates = solarTerm24.dates_of('雨水', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -166,7 +166,7 @@ class Jyuunityoku:
     
  
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('啓蟄', year)
+        dates = solarTerm24.dates_of('啓蟄', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -175,7 +175,7 @@ class Jyuunityoku:
  
             
 
-        dates = SolarTerms24.dates_of('春分', year)
+        dates = solarTerm24.dates_of('春分', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -186,7 +186,7 @@ class Jyuunityoku:
  
     
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('清明', year)
+        dates = solarTerm24.dates_of('清明', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -194,7 +194,7 @@ class Jyuunityoku:
             current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12
  
             
-        dates = SolarTerms24.dates_of('穀雨', year)
+        dates = solarTerm24.dates_of('穀雨', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -207,7 +207,7 @@ class Jyuunityoku:
  
     
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('立夏', year)
+        dates = solarTerm24.dates_of('立夏', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -215,7 +215,7 @@ class Jyuunityoku:
  
             
  
-        dates = SolarTerms24.dates_of('小満', year)
+        dates = solarTerm24.dates_of('小満', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -228,7 +228,7 @@ class Jyuunityoku:
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('芒種', year)
+        dates = solarTerm24.dates_of('芒種', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -236,7 +236,7 @@ class Jyuunityoku:
  
             
  
-        dates = SolarTerms24.dates_of('夏至', year)
+        dates = solarTerm24.dates_of('夏至', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -250,7 +250,7 @@ class Jyuunityoku:
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('小暑', year)
+        dates = solarTerm24.dates_of('小暑', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -258,7 +258,7 @@ class Jyuunityoku:
  
             
  
-        dates = SolarTerms24.dates_of('大暑', year)
+        dates = solarTerm24.dates_of('大暑', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -271,7 +271,7 @@ class Jyuunityoku:
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('立秋', year)
+        dates = solarTerm24.dates_of('立秋', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -279,7 +279,7 @@ class Jyuunityoku:
  
             
  
-        dates = SolarTerms24.dates_of('処暑', year)
+        dates = solarTerm24.dates_of('処暑', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -289,7 +289,7 @@ class Jyuunityoku:
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('白露', year)
+        dates = solarTerm24.dates_of('白露', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -297,7 +297,7 @@ class Jyuunityoku:
  
             
  
-        dates = SolarTerms24.dates_of('秋分', year)
+        dates = solarTerm24.dates_of('秋分', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -307,14 +307,14 @@ class Jyuunityoku:
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('寒露', year)
+        dates = solarTerm24.dates_of('寒露', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
             current_jyuunityoku_number = (current_jyuunityoku_number + 1) % 12
  
         
-        dates = SolarTerms24.dates_of('霜降', year)
+        dates = solarTerm24.dates_of('霜降', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -325,7 +325,7 @@ class Jyuunityoku:
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('立冬', year)
+        dates = solarTerm24.dates_of('立冬', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -333,7 +333,7 @@ class Jyuunityoku:
  
             
  
-        dates = SolarTerms24.dates_of('小雪', year)
+        dates = solarTerm24.dates_of('小雪', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -344,7 +344,7 @@ class Jyuunityoku:
 
 
         current_jyuunityoku_number -= 1
-        dates = SolarTerms24.dates_of('大雪', year)
+        dates = solarTerm24.dates_of('大雪', year)
         for date in dates:
             self._dict[date] = JYUUNITYOKU[current_jyuunityoku_number]
             if DEBUG_MODE: print( date, '\t', JYUUNITYOKU[current_jyuunityoku_number] )
@@ -352,7 +352,7 @@ class Jyuunityoku:
  
             
  
-        dates = SolarTerms24.dates_of('冬至', year)
+        dates = solarTerm24.dates_of('冬至', year)
         for date in dates:
             #1月分はスキップ
             month = date.split('-')[1]
